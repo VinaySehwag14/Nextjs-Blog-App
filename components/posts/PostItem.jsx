@@ -2,7 +2,7 @@ import styles from "./postsItem.module.css";
 import Link from "next/link";
 import Image from "next/image";
 
-const PostItem = () => {
+const PostItem = (props) => {
   const { title, image, excerpt, date, slug } = props.post;
 
   //* method for formatting date
@@ -13,13 +13,21 @@ const PostItem = () => {
   });
 
   const imagePath = `/images/posts/${slug}/${image}`;
+  //*for path initialisation
+  const linkPath = `/posts/${slug}`;
 
   return (
     <li className={styles.post}>
-      <Link>
+      <Link href={linkPath}>
         <a>
           <div className={styles.image}>
-            <Image src={imagePath} alt={title} width="300" height={200} />
+            <Image
+              src={imagePath}
+              alt={title}
+              width="300"
+              height={200}
+              layout="responsive"
+            />
           </div>
           <div className={styles.content}>
             <h3>{title}</h3>

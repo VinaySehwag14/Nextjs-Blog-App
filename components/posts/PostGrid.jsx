@@ -7,7 +7,7 @@ const PostGrid = (props) => {
   return (
     <ul className={styles.grid}>
       {posts.map((post) => (
-        <PostItem key={2} />
+        <PostItem post={post} key={post.slug} />
       ))}
     </ul>
   );
