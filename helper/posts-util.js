@@ -5,13 +5,17 @@ import path from "path";
 //* path for directory from where we have to read
 const postsDirectory = path.join(process.cwd(), "posts");
 
-function getPostData(fileName) {
-  const filePath = path.join(postsDirectory, fileName);
+export function getPostFiles() {
+  return fs.readdirSync(postsDirectory);
+}
+
+export function getPostData(postIdentifier) {
+  //* removes the file extension
+  const postSlug = postIdentifier.replace(/\.md$/, "");
+
+  const filePath = path.join(postsDirectory, `${postSlug}.md`); //*to make to read slugs data
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContent);
-
-  //* removes the file extension
-  const postSlug = fileName.replace(/\.md$/, "");
 
   const postData = {
     slug: postSlug,
