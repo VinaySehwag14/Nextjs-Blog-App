@@ -5,7 +5,6 @@ import darcula from "react-syntax-highlighter/dist/cjs/styles/prism/darcula";
 //* language we want to support
 import js from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
 import css from "react-syntax-highlighter/dist/cjs/languages/prism/css";
-import html from "react-syntax-highlighter/dist/cjs/languages/prism/html";
 import jsx from "react-syntax-highlighter/dist/cjs/languages/prism/jsx";
 
 import PostHeader from "./PostHeader";
@@ -15,7 +14,6 @@ import Image from "next/image";
 //* registering language which we are using is neccessary
 SyntaxHighlighter.registerLanguage("js", js);
 SyntaxHighlighter.registerLanguage("css", css);
-SyntaxHighlighter.registerLanguage("html", html);
 SyntaxHighlighter.registerLanguage("jsx", jsx);
 
 const PostContent = (props) => {
